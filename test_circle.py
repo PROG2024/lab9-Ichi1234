@@ -22,10 +22,13 @@ class CircleTest(unittest.TestCase):
 
     def test_typical_case(self):
         """test if add positive radius working or not"""
+
+        # first circle
         self.assertEqual(f"{Circle(math.sqrt(6 ** 2 + 7 ** 2))}", f"{Circle(7).add_area(Circle(6))}")
         self.assertEqual(Circle(math.sqrt(6 ** 2 + 7 ** 2)).get_radius(), Circle(7).add_area(Circle(6)).get_radius())
         self.assertEqual(Circle(math.sqrt(6 ** 2 + 7 ** 2)).get_area(), Circle(7).add_area(Circle(6)).get_area())
 
+        # second circle
         self.assertEqual(f"{Circle(math.sqrt(99 ** 2 + 98 ** 2))}", f"{Circle(98).add_area(Circle(99))}")
         self.assertEqual(Circle(math.sqrt(99 ** 2 + 98 ** 2)).get_radius(),
                          Circle(98).add_area(Circle(99)).get_radius())
@@ -38,10 +41,13 @@ class CircleTest(unittest.TestCase):
 
     def test_edge_case(self):
         """test if one Circle has radius 0 and other has non-zero it should be the same"""
+
+        # first circle
         self.assertEqual(f"{Circle(math.sqrt(6 ** 2 + 0 ** 2))}", f"{Circle(6).add_area(Circle(0))}")
         self.assertEqual(Circle(math.sqrt(6 ** 2 + 0 ** 2)).get_radius(), Circle(6).add_area(Circle(0)).get_radius())
         self.assertEqual(Circle(math.sqrt(6 ** 2 + 0 ** 2)).get_area(), Circle(6).add_area(Circle(0)).get_area())
 
+        # second circle
         self.assertEqual(f"{Circle(math.sqrt(44 ** 2 + 0 ** 2))}", f"{Circle(44).add_area(Circle(0))}")
         self.assertEqual(Circle(math.sqrt(44 ** 2 + 0 ** 2)).get_radius(), Circle(44).add_area(Circle(0)).get_radius())
         self.assertEqual(Circle(math.sqrt(44 ** 2 + 0 ** 2)).get_area(), Circle(44).add_area(Circle(0)).get_area())
