@@ -13,7 +13,7 @@ import logging
 
 class Counter:
     __instance = None
-    __share_count = -1
+    __share_count = 0
 
     def __init__(self):
         self.__count = Counter.__share_count
@@ -29,9 +29,10 @@ class Counter:
 
     @property
     def count(self):
-        return Counter.__share_count
+        return self.__count
 
     def increment(self):
         """add 1 and return the new count"""
         Counter.__share_count += 1
+        self.__count += 1
         return Counter.__share_count
