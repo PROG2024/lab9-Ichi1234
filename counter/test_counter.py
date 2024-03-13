@@ -31,13 +31,17 @@ class CounterTest(unittest.TestCase):
         self.assertEqual(before_increment + 2, self.counter.increment())
 
     def test_instance(self):
-        """check if someone call Counter() again it will be the same one or not"""
+        """check test case in github"""
+
         counter = Counter()
+        self.assertEqual(1, counter.count)
+        self.assertEqual(1, counter.count)  # invoking count doesn't change anything
+
+        self.assertEqual(2, counter.increment())  # add 1 and return the new count
+
         counter2 = Counter()
-
         self.assertIs(counter, counter2)
+        self.assertEqual(2, counter2.count)  # shares same count
 
-        counter2.increment()
-        self.assertEqual(counter.count, counter2.count)
-        counter.increment()
-        self.assertEqual(counter.count, counter2.count)
+        self.assertEqual(3, counter2.increment())  # add 1 and return the new count
+        self.assertEqual(3, counter.count)
